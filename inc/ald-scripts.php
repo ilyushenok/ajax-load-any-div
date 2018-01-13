@@ -13,7 +13,11 @@ add_action('init','ald_scripts');
 * Admin Scripts 
 */
 function ald_admin_scripts() {
+	wp_enqueue_script('jquery');
 	wp_enqueue_script( 'jquery-form' );
+	wp_enqueue_script('bootstrap', plugin_dir_url(__FILE__).'/bootstrap/bootstrap.min.js',array('jquery'));
+	
+	wp_enqueue_style('bootstrap', plugin_dir_url(__FILE__).'/bootstrap/bootstrap.min.css');
 }
 add_action( 'admin_init', 'ald_admin_scripts' );
 
@@ -22,7 +26,23 @@ add_action( 'admin_init', 'ald_admin_scripts' );
 */
 function ald_custom_style(){?>
 	<style type="text/css"> 
-		<?php echo esc_attr( get_option('ald_load_class') ); ?>{
+		<?php 
+		if(!empty(get_option('ald_load_class'))){
+			echo esc_attr( get_option('ald_load_class') );
+		} 
+		if(!empty(get_option('ald_load_classa'))){
+			echo ','.esc_attr( get_option('ald_load_classa') );
+		} 
+		if(!empty(get_option('ald_load_classb'))){
+			echo ','.esc_attr( get_option('ald_load_classb') );
+		} 
+		if(!empty(get_option('ald_load_classc'))){
+			echo ','.esc_attr( get_option('ald_load_classc') );
+		} 
+		if(!empty(get_option('ald_load_classd'))){
+			echo ','.esc_attr( get_option('ald_load_classd') );
+		} 		
+		?>{
 			display: none;
 		}
 		<?php if(empty(get_option('ald_css_class'))){ ?>
@@ -120,7 +140,7 @@ function ald_custom_code(){?>
 		(function($) {
 			'use strict';
 
-			jQuery(document).ready(function() {
+			jQuery(document).ready(function( ) {
 				
 				$("<?php echo esc_attr( get_option('ald_wrapper_class') ); ?>").append('<a href="#" class="btn loadMoreBtn" id="loadMore"><?php echo esc_attr( get_option('ald_load_label') ); ?></a>');
 				
@@ -132,7 +152,67 @@ function ald_custom_code(){?>
 						$("#loadMore").fadeOut('slow');
 					}
 				});
-	
+				// end wrapper 1
+				
+				<?php if(!empty(get_option('ald_wrapper_classa'))):?>
+				//wrapper 2
+				$("<?php echo esc_attr( get_option('ald_wrapper_classa') ); ?>").append('<a href="#" class="btn loadMoreBtn" id="loadMorea"><?php echo esc_attr( get_option('ald_load_labela') ); ?></a>');
+				
+				$("<?php echo esc_attr( get_option('ald_load_classa') ); ?>").slice(0, <?php echo esc_attr( get_option('ald_item_showa') ); ?>).show();
+				$("#loadMorea").on('click', function (e) {
+					e.preventDefault();
+					$("<?php echo esc_attr( get_option('ald_load_classa') ); ?>:hidden").slice(0, <?php echo esc_attr( get_option('ald_item_loada') ); ?>).slideDown();
+					if ($("<?php echo esc_attr( get_option('ald_load_classa') ); ?>:hidden").length == 0) {
+						$("#loadMorea").fadeOut('slow');
+					}
+				});
+				// end wrapper 2
+				<?php endif;?>
+				
+				<?php if(!empty(get_option('ald_wrapper_classb'))):?>
+				// wrapper 3 
+				$("<?php echo esc_attr( get_option('ald_wrapper_classb') ); ?>").append('<a href="#" class="btn loadMoreBtn" id="loadMoreb"><?php echo esc_attr( get_option('ald_load_labelb') ); ?></a>');
+				
+				$("<?php echo esc_attr( get_option('ald_load_classb') ); ?>").slice(0, <?php echo esc_attr( get_option('ald_item_showb') ); ?>).show();
+				$("#loadMoreb").on('click', function (e) {
+					e.preventDefault();
+					$("<?php echo esc_attr( get_option('ald_load_classb') ); ?>:hidden").slice(0, <?php echo esc_attr( get_option('ald_item_loadb') ); ?>).slideDown();
+					if ($("<?php echo esc_attr( get_option('ald_load_classb') ); ?>:hidden").length == 0) {
+						$("#loadMoreb").fadeOut('slow');
+					}
+				});
+				// end wrapper 3
+				<?php endif;?>
+				
+				<?php if(!empty(get_option('ald_wrapper_classc'))):?>
+				//wraper 4
+				$("<?php echo esc_attr( get_option('ald_wrapper_classc') ); ?>").append('<a href="#" class="btn loadMoreBtn" id="loadMorec"><?php echo esc_attr( get_option('ald_load_labelc') ); ?></a>');
+				
+				$("<?php echo esc_attr( get_option('ald_load_classc') ); ?>").slice(0, <?php echo esc_attr( get_option('ald_item_showc') ); ?>).show();
+				$("#loadMorec").on('click', function (e) {
+					e.preventDefault();
+					$("<?php echo esc_attr( get_option('ald_load_classc') ); ?>:hidden").slice(0, <?php echo esc_attr( get_option('ald_item_loadc') ); ?>).slideDown();
+					if ($("<?php echo esc_attr( get_option('ald_load_classc') ); ?>:hidden").length == 0) {
+						$("#loadMorec").fadeOut('slow');
+					}
+				});
+				// end wrapper 4
+				<?php endif;?>
+				
+				<?php if(!empty(get_option('ald_wrapper_classd'))):?>
+				//wrapper 5
+				$("<?php echo esc_attr( get_option('ald_wrapper_classd') ); ?>").append('<a href="#" class="btn loadMoreBtn" id="loadMored"><?php echo esc_attr( get_option('ald_load_labeld') ); ?></a>');
+				
+				$("<?php echo esc_attr( get_option('ald_load_classd') ); ?>").slice(0, <?php echo esc_attr( get_option('ald_item_showd') ); ?>).show();
+				$("#loadMored").on('click', function (e) {
+					e.preventDefault();
+					$("<?php echo esc_attr( get_option('ald_load_classd') ); ?>:hidden").slice(0, <?php echo esc_attr( get_option('ald_item_loadd') ); ?>).slideDown();
+					if ($("<?php echo esc_attr( get_option('ald_load_classd') ); ?>:hidden").length == 0) {
+						$("#loadMored").fadeOut('slow');
+					}
+				});
+				// end wrapper 5
+				<?php endif;?>
 
 			});
 
