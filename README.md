@@ -55,11 +55,11 @@ Just put the class or ID where you want to show the Button then put the CSS or I
 ### Screenshots
 1. Setting Page.
 
-![Ajax Load More Anything Wordpress Plugin](screenshot-1.png)
+![Setting Page](screenshot-1.png)
 
-2. Frontend Preview screenshot-2.
+2. Frontend Preview.
 
-![Ajax Load More Anything Wordpress Plugin](screenshot-2.png)
+![Frontend Preview](screenshot-2.png)
 
 3. Any Class, ID or Tags can be use to Load More.
 
