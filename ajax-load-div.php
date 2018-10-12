@@ -10,7 +10,6 @@ License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  asr_td
 Domain Path:  /languages
-
 Load More Anything is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
@@ -23,15 +22,11 @@ GNU General Public License for more details.
  
 You should have received a copy of the GNU General Public License
 along with Load More Anything. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
-
 */
-
-
 /**
 * Get Scripts files 
 **/
 require_once('inc/ald-scripts.php');
-
 /**
 * Add Setting Page Submenu
 */
@@ -46,11 +41,9 @@ function ald_add_submenu_page() {
 	);
 }
 add_action( 'admin_menu', 'ald_add_submenu_page' );
-
 /**
 * Design Setting Page
 **/
-
 function ald_settings_callback(){ ?>
 <div class="wrap">
 <h1>Load More Anyting by ASRCODER™</h1>
@@ -320,11 +313,10 @@ function ald_settings_callback(){ ?>
 			</td>
 			<td class="right-col">
 				<h2>Custom CSS</h2>
-				<pre><textarea style="width:100%" name="asr_ald_css_class" id="" rows="10"><?php if(empty(get_option('asr_ald_css_class'))){echo ".btn.loadMoreBtn {
+				<pre><textarea style="width:100%" name="asr_ald_css_class" id="" rows="10"><?php if(get_option('asr_ald_css_class') == false){echo ".btn.loadMoreBtn {
     color: #333333;
     text-align: center;
 }
-
 .btn.loadMoreBtn:hover {
     text-decoration: none;
 }";}else {echo esc_attr( get_option('asr_ald_css_class') ); } ?></textarea></pre>
@@ -338,7 +330,6 @@ function ald_settings_callback(){ ?>
 </div>
 
 <?php }
-
 /*
 * Register settings fields to database
 */
