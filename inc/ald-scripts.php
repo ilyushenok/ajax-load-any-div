@@ -27,25 +27,25 @@ add_action( 'admin_init', 'ald_admin_scripts' );
 function ald_custom_style(){?>
 	<style type="text/css"> 
 		<?php 
-		if(!empty(get_option('ald_load_class'))){
+		if(get_option('ald_load_class') != false){
 			echo esc_attr( get_option('ald_load_class') );
 		} 
-		if(!empty(get_option('ald_load_classa'))){
+		if(get_option('ald_load_classa') != false){
 			echo ','.esc_attr( get_option('ald_load_classa') );
 		} 
-		if(!empty(get_option('ald_load_classb'))){
+		if(get_option('ald_load_classb') != false){
 			echo ','.esc_attr( get_option('ald_load_classb') );
 		} 
-		if(!empty(get_option('ald_load_classc'))){
+		if(get_option('ald_load_classc') != false){
 			echo ','.esc_attr( get_option('ald_load_classc') );
 		} 
-		if(!empty(get_option('ald_load_classd'))){
+		if(get_option('ald_load_classd') != false){
 			echo ','.esc_attr( get_option('ald_load_classd') );
 		} 		
 		?>{
 			display: none;
 		}
-		<?php if(empty(get_option('ald_css_class'))){ ?>
+		<?php if(get_option('ald_css_class') == false){ ?>
 		.btn.loadMoreBtn {
 			color: #333333;
 			text-align: center;
@@ -95,7 +95,7 @@ function ald_admin_style(){?>
 			-moz-box-shadow: 5px 5px 10px #cfcfcf;
 			-webkit-box-shadow: 5px 5px 10px #cfcfcf;
 			}
-		<?php if(empty(get_option('ald_css_class'))){ ?>
+		<?php if(get_option('ald_css_class') == false){ ?>
 		.btn.loadMoreBtn {
 			color: #333333;
 			text-align: center;
@@ -154,7 +154,7 @@ function ald_custom_code(){?>
 				});
 				// end wrapper 1
 				
-				<?php if(!empty(get_option('ald_wrapper_classa'))):?>
+				<?php if(get_option('ald_wrapper_classa') != false):?>
 				//wrapper 2
 				$("<?php echo esc_attr( get_option('ald_wrapper_classa') ); ?>").append('<a href="#" class="btn loadMoreBtn" id="loadMorea"><?php echo esc_attr( get_option('ald_load_labela') ); ?></a>');
 				
@@ -169,7 +169,7 @@ function ald_custom_code(){?>
 				// end wrapper 2
 				<?php endif;?>
 				
-				<?php if(!empty(get_option('ald_wrapper_classb'))):?>
+				<?php if(get_option('ald_wrapper_classb') != false):?>
 				// wrapper 3 
 				$("<?php echo esc_attr( get_option('ald_wrapper_classb') ); ?>").append('<a href="#" class="btn loadMoreBtn" id="loadMoreb"><?php echo esc_attr( get_option('ald_load_labelb') ); ?></a>');
 				
@@ -184,7 +184,7 @@ function ald_custom_code(){?>
 				// end wrapper 3
 				<?php endif;?>
 				
-				<?php if(!empty(get_option('ald_wrapper_classc'))):?>
+				<?php if(get_option('ald_wrapper_classc') != false):?>
 				//wraper 4
 				$("<?php echo esc_attr( get_option('ald_wrapper_classc') ); ?>").append('<a href="#" class="btn loadMoreBtn" id="loadMorec"><?php echo esc_attr( get_option('ald_load_labelc') ); ?></a>');
 				
@@ -199,7 +199,7 @@ function ald_custom_code(){?>
 				// end wrapper 4
 				<?php endif;?>
 				
-				<?php if(!empty(get_option('ald_wrapper_classd'))):?>
+				<?php if(get_option('ald_wrapper_classd') != false):?>
 				//wrapper 5
 				$("<?php echo esc_attr( get_option('ald_wrapper_classd') ); ?>").append('<a href="#" class="btn loadMoreBtn" id="loadMored"><?php echo esc_attr( get_option('ald_load_labeld') ); ?></a>');
 				
