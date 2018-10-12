@@ -69,3 +69,6 @@ Just put the class or ID where you want to show the Button then put the CSS or I
 
 ### 2.0
 * Increase multiple wrappers up to 5
+
+### 2.0.1
+* Support for PHP < 5.5
